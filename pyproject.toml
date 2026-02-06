@@ -1,0 +1,42 @@
+[project]
+name = "lab02-pet-project"
+version = "0.1.0"
+description = "Finance Tracker CLI"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "pyrefly>=0.20.2",
+    "pytest>=8.4.0",
+    "pytest-cov>=6.1.1",
+    "ruff>=0.12.0",
+    "typer>=0.20.0",
+    "matplotlib>=3.10.0"
+]
+
+# Ruff section
+[tool.ruff]
+line-length = 100  # Formatter and linter wrap lines at 100 characters
+exclude = ["tests"]
+force-exclude = true  # For pre-commit, exclude all files except those explicitly included
+
+[tool.ruff.lint]
+# Turn on the main rule families you’re likely to want
+select = [
+  "E",   # pycodestyle errors
+  "F",   # Pyflakes
+  "I",   # isort import-ordering
+  "B",   # flake8-bugbear
+  "UP",  # pyupgrade
+  "N",   # pep8-naming
+  "D",   # pydocstyle  ← enforces docstrings
+  "C4",  # flake8-comprehensions
+  "SIM", # flake8-simplify
+  "ARG", # flake8-unused-arguments
+  "ANN", # flake8-annotations
+  "S"    # Bandit (security)
+]
+ignore = ["D2", "D4"]
+
+[tool.pyrefly]
+project-includes = ["**/*"]
+project-excludes = ["**/*venv/**/*"]
